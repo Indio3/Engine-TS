@@ -74,6 +74,11 @@ const NpcOps: CommandHandlers = {
         state.pushInt(CoordGrid.packCoord(coord.level, coord.x, coord.z));
     }),
 
+    [ScriptOpcode.NPC_STARTCOORD]: checkedHandler(ActiveNpc, state => {
+        const { startLevel, startX, startZ } = state.activeNpc;
+        state.pushInt(CoordGrid.packCoord(startLevel, startX, startZ));
+    }),
+
     [ScriptOpcode.NPC_DEL]: checkedHandler(ActiveNpc, state => {
         World.removeNpc(state.activeNpc, check(state.activeNpc.type, NpcTypeValid).respawnrate);
     }),
