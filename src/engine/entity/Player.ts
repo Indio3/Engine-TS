@@ -313,7 +313,7 @@ export default class Player extends PathingEntity {
     lowMemory: boolean = false;
     webClient: boolean = false;
     combatLevel: number = 3;
-    headicons: number = 0;
+    headicons: number = -1;
     appearance: number = -1;
     lastAppearance: number = 0;
     lastAppearanceBytes: Uint8Array | null = null;
@@ -1309,7 +1309,7 @@ export default class Player extends PathingEntity {
 
         stream.p1(this.gender);
         stream.p1(0xFF); // prayer icon?
-        stream.p1(0xFF); // skull icon?
+        stream.p1(this.headicons); // skull icon?
 
         const skippedSlots = [];
 
