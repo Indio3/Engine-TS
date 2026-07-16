@@ -326,7 +326,7 @@ export function parseHuntConfig(key: string, value: string): ConfigValue | null 
         }
         return { inv, obj, condition, val };
     } else if (key === 'check_invparam') {
-        // check_invparam=inv,param,min,max
+        // check_invparam=inv,param,cond
         const parts: string[] = value.split(',');
         if (parts.length !== 3) {
             return null;
@@ -352,7 +352,7 @@ export function parseHuntConfig(key: string, value: string): ConfigValue | null 
         }
         return { inv, param, condition, val };
     } else if (key === 'check_invcat') {
-        // check_invcat=inv,param,min,max
+        // check_invcat=inv,param,cond
         const parts: string[] = value.split(',');
         if (parts.length !== 3) {
             return null;
